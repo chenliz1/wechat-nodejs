@@ -1,0 +1,20 @@
+{
+  "name": "UTFAQ_wechat_backend",
+  "version": "0.1.0",
+  "description": "messenger plugin to auto reply users",
+  "author": {
+    "name": "Lizhe Chen",
+    "email": "lizhe.chen@mail.utoronto.ca",
+    "url": "utfaq.com"
+  },
+  "private": true,
+  "main": "server.js",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "multer": "^1.3.0",
+    "process": "^0.11.10",
+    "rootpath": "^0.1.2",
+    "wechat": "^2.1.0",
+    "wpapi": "^1.1.2"
+  }
+}
