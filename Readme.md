@@ -7,9 +7,9 @@
 - We use Node Foreman to manage this application.
 - $ npm install -g foreman
 
-
-You will need your specific .env file for Node Foreman to load your specific environment settings. Here's an example:
-
+## How to load environment
+- You will need your specific .env file for Node Foreman to load your specific environment settings. Here's an example:
+```
 {
     "env" : "local",
     "port" : "3000",
@@ -21,11 +21,12 @@ You will need your specific .env file for Node Foreman to load your specific env
     }
 
 }
+```
 
-Run dev dependency updates:
+## How to run dev dependency updates
 - $ npm install
 
-To start up the web server:
+## How to start up the web server
 - $ nf start
 
 
