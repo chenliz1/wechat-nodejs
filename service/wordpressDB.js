@@ -14,24 +14,20 @@ Database.prototype.connect = function(){
 
 	const self = this;
 
-	this.pool = mysql.createPool({
-		connectionLimit : 10,
+	this.connection = mysql.createConnection({
 		host		: process.env.MYSQL_HOST,
 		user		: process.env.MYSQL_USER,
 		password	: process.env.MYSQL_PASSWORD,
 		database	: process.env.MYSQL_DATABASE
 	});
 
-	this.pool.getConnection((err, connection) => {
+	this.connection.connect((err) => {
 
-		connection.release();
-
-		if(err){
-			return Logger.error(err);
+		if (err) {
+			return console.log(err);
 		}
 
-		return Logger.info("Connected to MySQL / Host: " + process.env.MYSQL_HOST + " / Schema: " + process.env.MYSQL_DATABASE);
+		return console.log("Connected to MySQL / Host: " + process.env.MYSQL_HOST + " / Schema: " + process.env.MYSQL_DATABASE);
 	});
-
 
 };

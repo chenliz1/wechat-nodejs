@@ -14,6 +14,7 @@ var _ 			= require('lodash'),
 	crypto 			= require("crypto"),
 	nodejieba 		= require("nodejieba"),
 	wordPress 		= require('service/wordpress.js'),
+	News			= require('utfaq/news.js'),
 	request 		= require('request');
 
 var wp = require( "wordpress" );
@@ -62,6 +63,7 @@ function validateToken(req,res){
 	var scyptoString = sha1(original);
 
 	if(signature == scyptoString){
+		res.reply('nihaoya');
 		res.end(echostr);
 		console.log("Confirm and send echo back");
 	}else {
@@ -86,21 +88,20 @@ Routes.prototype.init = (app) => {
 	});
 
 	//validate the connection of the service
-	app.get('/wechat', validateToken);
+	// app.get('/wechat', validateToken);
 
 
 	//main enrtry point for the messages
-	app.post('/wechat', wechat('weareutfaq', function (req, res, next) {
+	app.use('/wechat', wechat('weareutfaq', function (req, res, next) {
 		  // 微信输入信息都在req.weixin上
 		  	let message = req.weixin;
+		  	console.log(message);
 		  	//console.log(nodejieba.cut(message.Content));
 
 		  	client.getPost("7579", (error, post) => {
 		  		let a = post;
-
 			    
-			    console.log(a.terms);
-			    console.log(wordPress.publishPosts.length);
+			    // News.getMaterials("news", 0, 5);
 			    res.reply([
 			    {
 				    title: a.title,
@@ -127,6 +128,7 @@ Routes.prototype.init = (app) => {
 				    url: a.link
 				}
 				]);
+			
 
 			});
 			

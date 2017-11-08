@@ -20,6 +20,11 @@ var wordPress = new WordPress();
 module.exports = wordPress;
 
 var wp = require( "wordpress" );
+var client = wp.createClient({
+    url: "https://utfaq.com",
+    username: "Lucas Chen",
+    password: "lucaschen"
+});
 
 var textSanitizer = (rawText) => {
 

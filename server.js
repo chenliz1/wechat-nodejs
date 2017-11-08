@@ -33,7 +33,7 @@ var chatbotApp = function(){
 		routes.init(app);
 		http.createServer(app).listen(process.env.PORT || 8888);
 
-		//wordPress.load();
+		// wordPress.load();
 		//Controller.latestToken();
 		wp_DataBase.connect();
 
